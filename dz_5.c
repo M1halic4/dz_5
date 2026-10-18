@@ -1,4 +1,6 @@
-﻿#include <stdio.h>
+﻿#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
 #include <locale.h>
 #include <math.h>
 
@@ -16,15 +18,22 @@ int main()
 int dz()
 {
 	//Инициализация переменных
-	float x = 1.825e2, y = 18.225, z = -3.298e-2;
+	double x, y, z;
+
+	printf("Введите значения x y z: ");
+	
+	//Ввод чмсел пользователем
+	scanf("%lf %lf %lf", &x, &y, &z);
 
 	//Расчёт левой и а=правой части примера
-	double left = fabs(pow(x, y / x) - pow(y / x, 1.0 / 3));
-	double right = (y - x) * (cos(y) - z / (y - x)) / (1 + pow(y - x, 2));
+	float left = fabs(pow(x, y / x) - pow(y / x, 1.0 / 3));
+	float right = (y - x) * (cos(y) - z / (y - x)) / (1 + pow(y - x, 2));
 	
 	//Сложение левой и правой части
-	double psi = left + right;
+	float psi = left + right;
 
 	//Вывод результата
-	printf("%.4lf", psi);
+	printf("%.lf", psi);
+
+	return 0;
 }
